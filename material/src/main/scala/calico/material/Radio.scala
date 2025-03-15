@@ -15,7 +15,6 @@
  */
 
 package calico.material
-import cats.effect.IO
 
 import calico.html.Prop
 import cats.effect.kernel.Async
@@ -33,9 +32,9 @@ object Radio:
   @JSImport("@material/web/radio/radio.js")
   private[material] def use: Any = js.native
 
-  def mdRadio[F[_]](using F: Async[F]): MdTag[F, Radio[F]] =
-    val _ = use
+private trait MaterialRadio[F[_]](using F: Async[F]):
+
+  lazy val mdRadio: MdTag[F, Radio[F]] =
+    Radio.use
     MdTag("md-radio")
-
-
 

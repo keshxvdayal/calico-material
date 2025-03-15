@@ -30,7 +30,7 @@ object Demo extends IOWebApp:
   ),
   label(
     "Select Option",
-    Radio.mdRadio[IO] { r =>  // Pass IO explicitly
+    mdRadio { r =>  // Pass IO explicitly
       r.checked := true
     },
   ),
